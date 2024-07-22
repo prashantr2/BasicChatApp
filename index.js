@@ -8,6 +8,10 @@ const io = socketio(server);
 
 io.on('connection', (socket) => {
     console.log('A user connected');
+    
+    socket.on('msg_send', (data) => {
+        console.log("Data received: ", data);
+    })
 })
 
 app.use('/', express.static(__dirname + '/public'));
